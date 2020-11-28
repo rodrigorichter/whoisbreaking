@@ -1,0 +1,6 @@
+.Gallery {
+  background-color: #282c34;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
