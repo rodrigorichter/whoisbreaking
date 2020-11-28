@@ -1,0 +1,10 @@
+.Navbar {
+  flex-grow: 1;
+  background-color: #2e352e !important;
+  box-shadow: none !important;
+}
+
+.Navbar-title {
+  color: white;
+  font-family: 'Castoro-Regular' !important;
+}

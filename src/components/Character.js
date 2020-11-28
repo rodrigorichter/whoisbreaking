@@ -10,7 +10,7 @@ export default class Character extends Component {
   render() {
     var img = "linear-gradient(to right, transparent, #424242), url("+this.props.image+")";
     return(
-      <Card className="Character" style={{backgroundImage: img}}>
+      <Card className={"Character hide-" + this.props.hide} style={{backgroundImage: img}} >
         <CardContent>
         <Typography className="card-info card-title" color="textPrimary" gutterBottom>
           {this.props.title}

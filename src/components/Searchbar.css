@@ -1,0 +1,23 @@
+#search-input {
+  color: #dfcc26;
+  font-size: 30px;
+}
+
+.Searchbar .MuiTextField-root {
+  margin: 30px auto 10px auto !important;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.Searchbar .MuiTextField-root .MuiInputLabel-root {
+  color: white;
+}
+
+.Searchbar .MuiTextField-root .MuiInputLabel-root .Mui-focused {
+  color: #dfcc26;
+}
+
+.Searchbar .MuiInput-underline::before {
+  border-bottom: 1px solid rgba(255, 255, 255, 1) !important;;
+}
+

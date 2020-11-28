@@ -1,6 +1,7 @@
 import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import './Searchfilters.css';
 
 class Searchfilters extends  React.Component {	
   constructor( props ) {
@@ -13,6 +14,7 @@ class Searchfilters extends  React.Component {
 
   handleChange = (event) => {
     this.setState({ dead: event.target.checked });
+    this.props.checkedDead(event.target.checked);
   };
 
   
@@ -20,7 +22,7 @@ class Searchfilters extends  React.Component {
   render() {
 
     return (
-      <FormControlLabel
+      <FormControlLabel className="Onlydeceasedfilter"
         control={
           <Checkbox
             checked={this.state.dead}
@@ -29,7 +31,7 @@ class Searchfilters extends  React.Component {
             color="primary"
           />
         }
-        label="Only Dead?"
+        label="Only deceased"
       />
     )
   }

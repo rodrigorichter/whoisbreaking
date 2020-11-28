@@ -1,10 +1,11 @@
 import './App.css';
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Navbar from './components/Navbar.js';
 import Gallery from './components/Gallery.js';
 import Searchbar from './components/Searchbar.js';
 import Searchfilters from './components/Searchfilters.js';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './theme.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,22 +38,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" ref="trackScroll">
-        <header className="App-header">
-          <Navbar />
-        </header>
+      <ThemeProvider theme={theme}>
+        <div className="App" ref="trackScroll">
+          <header className="App-header">
+            <Navbar />
+          </header>
           <Searchbar searchedQuery={this.updateSearchedQuery}/>
           <Searchfilters checkedDead={this.updatecheckedDead}/>
           <Gallery 
-          limit="10" 
-          searchQuery={this.state.query} 
-          onlyDead={this.state.dead}
-          pageSize={this.state.pageSize}
-          currentPage={this.state.currentPage}
+            limit="10" 
+            searchQuery={this.state.query} 
+            onlyDead={this.state.dead}
+            pageSize={this.state.pageSize}
+            currentPage={this.state.currentPage}
           />
-          <Button variant="contained" color="primary">{this.state.query}</Button>
-
-      </div>
+        </div>
+      </ThemeProvider>
     );
   }
 }

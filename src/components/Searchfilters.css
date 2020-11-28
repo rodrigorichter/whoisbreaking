@@ -1,0 +1,15 @@
+.Onlydeceasedfilter {
+  margin: 5px auto 30px auto;
+}
+
+.Onlydeceasedfilter .MuiCheckbox-root {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.Onlydeceasedfilter .MuiCheckbox-root.Mui-checked {
+  color: #dfcc26;
+}
+
+.Onlydeceasedfilter .MuiFormControlLabel-label {
+  color: white;
+}
