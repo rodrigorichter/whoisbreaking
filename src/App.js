@@ -16,14 +16,23 @@ class App extends React.Component {
       dead: false,
       pageSize: 10,
       currentPage: 0,
+      lockPagination: false,
+      freeLockPaginationDelay: 1500,
+      paginationHeightThreshold: 100,
     };
+
+    window.setInterval(() => {
+      console.log(this.state.freeLockPaginationDelay);
+      this.setState({ lockPagination: false });
+    }, 1000);
 
     window.onscroll = () => {
       if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
+        (window.innerHeight + document.documentElement.scrollTop + this.state.paginationHeightThreshold
+          >= document.documentElement.offsetHeight) &&
+        (!this.state.lockPagination)
       ) {
-        this.setState({ currentPage: parseInt(this.state.currentPage) + 1 });
+        this.setState({ currentPage: parseInt(this.state.currentPage) + 1, lockPagination: true });
       }
     };
   }

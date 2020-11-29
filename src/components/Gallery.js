@@ -14,12 +14,12 @@ export default class Gallery extends Component {
     };
   }
 
-  updateGalleryCharacters() {
+  async updateGalleryCharacters() {
     var urlRoot = "https://www.breakingbadapi.com/api/characters?name=";
     var url = urlRoot + this.props.searchQuery;
     url = url + "&limit=" + this.props.pageSize + "&offset=" + parseInt(this.props.currentPage) * parseInt(this.props.pageSize);
-    console.log(url);
-    fetch(url)
+
+    return new Promise((resolve, reject) => { fetch(url)
     .then(res => res.json())
     .then(
       (result) => {
@@ -27,14 +27,18 @@ export default class Gallery extends Component {
           isLoaded: true,
           characters: this.state.characters.concat(result)
         });
+        resolve(result);
       },
       (error) => {
         this.setState({
           isLoaded: true,
           error
         });
+        reject(error);
       }
     )
+    })
+
   }
 
   componentDidMount() {
